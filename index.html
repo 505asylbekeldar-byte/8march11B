@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<title>8 Наурыз</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff7eb3,#ffd6ec);
+font-family:Arial;
+overflow:hidden;
+}
+
+.envelope{
+width:260px;
+height:180px;
+background:#ff4f9a;
+position:relative;
+cursor:pointer;
+border-radius:10px;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+font-size:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card{
+position:absolute;
+background:white;
+padding:35px;
+border-radius:20px;
+max-width:500px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,0.3);
+display:none;
+animation:show 1.2s;
+}
+
+h1{
+color:#ff2f86;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:10px;
+background:#ff2f86;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+.flower{
+position:absolute;
+top:-20px;
+font-size:22px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+@keyframes show{
+from{opacity:0; transform:scale(0.5);}
+to{opacity:1; transform:scale(1);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="openLetter()">
+💌 Аш
+</div>
+
+<div class="card" id="card">
+
+<h1>🌸 8 Наурыз құтты болсын! 🌸</h1>
+
+<p>
+Құрметті <b>11 "Б" сынып қыздары</b>,  
+сіздерді көктемнің ең әдемі мерекесімен  
+шын жүректен құттықтаймыз! 💐
+</p>
+
+<p>
+Сіздерге бақыт, денсаулық,  
+көп қуаныш және жарқын болашақ тілейміз ✨
+</p>
+
+<p><b>Ізгі тілекпен — 11 "Б" сынып ұлдары</b></p>
+
+<button onclick="alert('🌸 8 мартынмен алдынмен артынмен  ! 💐')">
+Бассай ❤️
+</button>
+
+</div>
+
+<script>
+
+function openLetter(){
+document.querySelector(".envelope").style.display="none";
+document.getElementById("card").style.display="block";
+}
+
+function createFlower(){
+const el=document.createElement("div");
+el.className="flower";
+el.innerHTML=Math.random()>0.5?"🌸":"💖";
+el.style.left=Math.random()*100+"vw";
+el.style.animationDuration=(3+Math.random()*5)+"s";
+document.body.appendChild(el);
+
+setTimeout(()=>{el.remove();},8000);
+}
+
+setInterval(createFlower,300);
+
+</script>
+
+</body>
+</html>
