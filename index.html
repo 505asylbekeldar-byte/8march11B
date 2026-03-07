@@ -21,7 +21,6 @@ overflow:hidden;
 width:260px;
 height:180px;
 background:#ff4f9a;
-position:relative;
 cursor:pointer;
 border-radius:10px;
 display:flex;
@@ -37,7 +36,7 @@ position:absolute;
 background:white;
 padding:35px;
 border-radius:20px;
-max-width:500px;
+max-width:700px;
 text-align:center;
 box-shadow:0 15px 40px rgba(0,0,0,0.3);
 display:none;
@@ -49,7 +48,7 @@ color:#ff2f86;
 }
 
 button{
-margin-top:20px;
+margin-top:15px;
 padding:12px 25px;
 border:none;
 border-radius:10px;
@@ -62,6 +61,48 @@ cursor:pointer;
 button:hover{
 transform:scale(1.1);
 }
+
+/* ГАЛЕРЕЯ */
+
+.gallery{
+margin-top:25px;
+display:grid;
+grid-template-columns:repeat(3,120px);
+grid-template-rows:repeat(3,120px);
+gap:12px;
+justify-content:center;
+}
+
+.gallery img{
+width:120px;
+height:120px;
+object-fit:cover;
+border-radius:15px;
+padding:6px;
+background:white;
+border:3px solid #ff7eb3;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.3),
+0 0 15px rgba(255,126,179,0.6);
+
+transition:0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.15) rotate(3deg);
+box-shadow:
+0 15px 35px rgba(0,0,0,0.4),
+0 0 25px rgba(255,47,134,0.9);
+}
+
+/* расположение фото */
+
+.photo1{grid-column:1; grid-row:1;}
+.photo2{grid-column:3; grid-row:1;}
+.photo3{grid-column:2; grid-row:2;}
+.photo4{grid-column:1; grid-row:3;}
+.photo5{grid-column:3; grid-row:3;}
 
 .flower{
 position:absolute;
@@ -106,8 +147,26 @@ to{opacity:1; transform:scale(1);}
 
 <p><b>Ізгі тілекпен — 11 "Б" сынып ұлдары</b></p>
 
-<button onclick="alert('🌸 8 мартынмен алдынмен артынмен  ! 💐')">
+<div class="gallery">
+
+<img src="https://github.com/505asylbekeldar-byte/6/blob/main/WhatsApp%20Image%202026-03-07%20at%2019.33.19.jpeg?raw=true" class="photo1">
+
+<img src="https://github.com/505asylbekeldar-byte/5/blob/main/WhatsApp%20Image%202026-03-07%20at%2018.37.52%20(1).jpeg?raw=true" class="photo2">
+
+<img src="https://github.com/505asylbekeldar-byte/1/blob/main/WhatsApp%20Image%202026-03-07%20at%2018.37.52.jpeg?raw=true" class="photo3">
+
+<img src="https://github.com/505asylbekeldar-byte/4/blob/main/WhatsApp%20Image%202026-03-07%20at%2019.33.08.jpeg?raw=true" class="photo4">
+
+<img src="https://github.com/505asylbekeldar-byte/7/blob/main/WhatsApp%20Image%202026-03-07%20at%2019.33.19%20(1).jpeg?raw=true" class="photo5">
+
+</div>
+
+<button onclick="alert('🌸 8 Наурыз құтты болсын! 💐')">
 Бассай ❤️
+</button>
+
+<button onclick="showAddress()">
+📍 Адрес?
 </button>
 
 </div>
@@ -117,6 +176,10 @@ to{opacity:1; transform:scale(1);}
 function openLetter(){
 document.querySelector(".envelope").style.display="none";
 document.getElementById("card").style.display="block";
+}
+
+function showAddress(){
+alert("📍 Мекенжай: Шымкент қаласы, № ... мектеп, 11 'Б' сынып");
 }
 
 function createFlower(){
